@@ -64,3 +64,23 @@ class Parchis:
             self.fichaJ2 += tirada
             if self.fichaJ2 > Parchis.TAM_TABLERO:
                 self.fichaJ2 = Parchis.TAM_TABLERO - (self.fichaJ2 - Parchis.TAM_TABLERO)
+
+    def estadoCarrera(self):
+        vaGanando = ""
+        if self.fichaJ1 > self.fichaJ2:
+            vaGanando = f"Va ganando {self.nombreJ1}"
+        elif self.fichaJ1 < self.fichaJ2:
+            vaGanando = f"Va ganando {self.nombreJ2}"
+        else:
+            vaGanando = f"{self.nombreJ1} y {self.nombreJ2} van empatados"
+        return vaGanando
+
+    def esGanador(self):
+        ganador = ""
+        if self.fichaJ1 == Parchis.TAM_TABLERO:
+            ganador = f"{self.nombreJ1}"
+        elif self.fichaJ2 == Parchis.TAM_TABLERO:
+            ganador = f"{self.nombreJ2}"
+        else:
+            ganador = ""
+        return ganador

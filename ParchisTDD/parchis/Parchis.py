@@ -1,13 +1,13 @@
 from random import *
 
 class Parchis:
-    TAM_TABLERO = 10
+    TAM_TABLERO = 20
     dado1 = 0
     dado2 = 0
 
     def __init__(self, nombreJ1, nombreJ2):
-        self.fichaJ1 = 7
-        self.fichaJ2 = 5
+        self.fichaJ1 = 0
+        self.fichaJ2 = 0
         self.nombreJ1 = nombreJ1
         self.nombreJ2 = nombreJ2
 
@@ -53,3 +53,14 @@ class Parchis:
             k += 1
 
         return cad
+
+    def avanzaPosiciones(self, num):
+        tirada = Parchis.dado1 + Parchis.dado2
+        if num == 1:
+            self.fichaJ1 += tirada
+            if self.fichaJ1 > Parchis.TAM_TABLERO:
+                self.fichaJ1 = Parchis.TAM_TABLERO - (self.fichaJ1 - Parchis.TAM_TABLERO)
+        elif num == 2:
+            self.fichaJ2 += tirada
+            if self.fichaJ2 > Parchis.TAM_TABLERO:
+                self.fichaJ2 = Parchis.TAM_TABLERO - (self.fichaJ2 - Parchis.TAM_TABLERO)

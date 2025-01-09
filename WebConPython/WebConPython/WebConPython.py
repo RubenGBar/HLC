@@ -4,19 +4,26 @@ from WebConPython.Views.Footer.footer import footer
 from WebConPython.Views.Header.header import header
 from WebConPython.Views.Links.links import links
 from WebConPython.Views.NavBar.navbar import navbar
+from WebConPython.styles.styles import *
 
 class State(rx.State):
     pass
 
 def index() -> rx.Component:
-    return rx.vstack(
+    return rx.box(
         navbar(),
+        rx.center(
+            rx.vstack(
         header(),
-        links(),
+                links(),
+                align="center",
+                max_width=MAX_WIDTH,
+                margin_y=Size.BIG,
+            ),
+        ),
         footer(),
-        align="center"
     )
 
-app = rx.App()
+app = rx.App(style=BASE_STYLE)
 app.add_page(index)
 app._compile()

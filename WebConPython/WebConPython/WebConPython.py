@@ -1,29 +1,12 @@
 import reflex as rx
 
-from WebConPython.Views.Footer.footer import footer
-from WebConPython.Views.Header.header import header
-from WebConPython.Views.Links.links import links
-from WebConPython.Views.NavBar.navbar import navbar
 from WebConPython.styles.styles import *
+from WebConPython.pages.index import index
+from WebConPython.pages.courses import courses
 
 class State(rx.State):
     pass
 
-def index() -> rx.Component:
-    return rx.box(
-        navbar(),
-        rx.center(
-            rx.vstack(
-        header(),
-                links(),
-                align="center",
-                max_width=MAX_WIDTH,
-                margin_y=Size.BIG,
-            ),
-        ),
-        footer(),
-    )
-
 app = rx.App(style=BASE_STYLE)
-app.add_page(index)
+#app.add_page(index)
 app._compile()

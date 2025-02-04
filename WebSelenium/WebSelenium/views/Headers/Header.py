@@ -1,6 +1,6 @@
 import reflex as rx
 
 def header():
-    rx.hstack(
-
+    return rx.hstack(
+        rx.heading("Enlaces Favoritos", id="Cabecera")
     )

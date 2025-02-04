@@ -21,13 +21,21 @@ public class Ejercicio1 {
 	}
 
 	@Test
-	void test1() {
+	void testCabecera() {
 		driver1.get(url);
-		WebElement enlace1 = driver1.findElement(By.id("Cursos"));
-		enlace1.click();
+		WebElement cabecera = driver1.findElement(By.id("Cabecera"));
 		
-		String urlActual = driver1.getCurrentUrl();
-		assertEquals(url, urlActual);
+		String texto = cabecera.getText();
+		assertEquals("Enlaces Favoritos", texto);
+	}
+	
+	@Test
+	void testLista() {
+		driver1.get(url);
+		WebElement cabecera = driver1.findElement(By.id("ListaEnlaces"));
+		
+		String texto = cabecera.getText();
+		assertEquals("Enlaces Favoritos", texto);
 	}
 
 }

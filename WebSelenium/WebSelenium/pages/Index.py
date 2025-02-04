@@ -7,4 +7,6 @@ from WebSelenium.views.Headers.Header import header
     route=Routes.INDEX.value,
 )
 def index() -> rx.Component:
-    return header()
+    return rx.center(
+        header(),
+    )
